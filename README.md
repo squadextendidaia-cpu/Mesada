@@ -1,3 +1,3 @@
-# Projeto Mesada
+# Mesada
 
-Este repositório é destinado ao gerenciamento de tarefas e finanças.
+Projeto para gerenciamento de tarefas e finanças.
