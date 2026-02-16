@@ -1,23 +1,40 @@
 class Task:
-    """
-    Classe para representar uma tarefa.
-    """
-    def __init__(self, title: str, description: str) -> None:
+    def __init__(self, title: str, due_date: str, status: str):
+        """Initialize a Task instance.
+        
+        Args:
+            title (str): The title of the task.
+            due_date (str): The due date of the task.
+            status (str): The current status of the task (e.g. "Pending", "Completed").
+        """
         self.title = title
-        self.description = description
-        self.status = "pending"  # statuses: pending, completed, canceled
+        self.due_date = due_date
+        self.status = status
 
-    def complete(self) -> None:
-        """
-        Marca a tarefa como completa.
-        """
-        self.status = "completed"
+    def __repr__(self) -> str:
+        return f"Task(title={self.title}, due_date={self.due_date}, status={self.status})"
 
-    def cancel(self) -> None:
+    def is_completed(self) -> bool:
+        """Check if the task is completed.
+        
+        Returns:
+            bool: True if the task is completed, False otherwise.
         """
-        Cancela a tarefa.
-        """
-        self.status = "canceled"
+        return self.status == 'Completed'
 
-    def __str__(self) -> str:
-        return f"Task(title={self.title}, description={self.description}, status={self.status})"
+    @staticmethod
+    def filter_tasks(tasks: list["Task"], filter_type: str) -> list["Task"]:
+        """Filter tasks based on status.
+        
+        Args:
+            tasks (list[Task]): The list of Task instances.
+            filter_type (str): The type of filter to apply (e.g. "Completed", "Pending").
+        
+        Returns:
+            list[Task]: Filtered list of tasks based on the filter type.
+        """
+        if filter_type == 'Completed':
+            return [task for task in tasks if task.is_completed()]
+        elif filter_type == 'Pending':
+            return [task for task in tasks if not task.is_completed()]
+        return tasks
