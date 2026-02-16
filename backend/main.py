@@ -1,8 +1,3 @@
-# requirements.txt
-Flask
-Flask-RESTful
-Flask-Mysqldb
-
 # main.py
 from flask import Flask
 from flask_restful import Api, Resource
