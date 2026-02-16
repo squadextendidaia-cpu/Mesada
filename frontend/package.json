@@ -1,0 +1,10 @@
+# package.json
+{
+  "name": "task-manager",
+  "version": "1.0.0",
+  "dependencies": {
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "react-scripts": "^4.0.1"
+  }
+}
